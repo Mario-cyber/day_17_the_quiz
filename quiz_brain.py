@@ -16,7 +16,8 @@ class QuizBrain:
         return user_answer
 
     def check_answer(self, user_answer):
-        #it is not only if the answe is true, it's if it matches the actaual answer 
+        # there is a problem with the indeces, the program is checking against 
+        #the answer of the following question
         if user_answer == self.question_list[self.question_number].answer :
             print("correct!")
             self.score += 1
