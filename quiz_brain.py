@@ -7,14 +7,7 @@ class QuizBrain:
     
     def still_has_questions(self):
         return self.question_number < len(self.question_list) 
-
-    def next_question(self):
-        current_question = self.question_list[self.question_number]
-        self.question_number += 1
-        user_answer = str(input(f"Q.{self.question_number}: {current_question.text} (True/False): "))
-        print(f"this is th user answer: {user_answer}")
-        return user_answer
-
+    
     def check_answer(self, user_answer):
         # there is a problem with the indeces, the program is checking against 
         #the answer of the following question
@@ -23,7 +16,16 @@ class QuizBrain:
             self.score += 1
         else:
             print("incorrect")
-        print(f"score: {self.score}")
+        print(f"score: {self.score}")    
+
+    def next_question(self):
+        current_question = self.question_list[self.question_number]
+        user_answer = str(input(f"Q.{self.question_number}: {current_question.text} (True/False): "))
+        self.check_answer(user_answer = user_answer)
+        self.question_number += 1
+        return user_answer
+
+   
 
 
     
